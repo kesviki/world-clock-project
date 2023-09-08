@@ -21,9 +21,10 @@ function updateTime() {
     updateTime();
     setInterval(updateTime, 1000);
     
+    let cityInterval;
 
     function updateCity(event) {
-        let cityInterval;
+        
         clearInterval(cityInterval);
         let cityTimeZone = event.target.value;
         if (cityTimeZone === "current") {
