@@ -16,7 +16,16 @@ function updateTime() {
     
     sydneyDateElement.innerHTML = sydneyTime.format("MMMM Do YYYY");
     sydneyTimeElement.innerHTML = `${sydneyTime.format("h:mm:ss [<small>]A[</small>]")}`;
-    }
+
+    // Tokyo
+    let tokyoElement = document.querySelector("#tokyo");
+    let tokyoDateElement = tokyoElement.querySelector(".date");
+    let tokyoTimeElement = tokyoElement.querySelector(".time");
+    let tokyoTime = moment().tz("Asia/Tokyo");
+    
+    tokyoDateElement.innerHTML = tokyoTime.format("MMMM Do YYYY");
+    tokyoTimeElement.innerHTML = `${tokyoTime.format("h:mm:ss [<small>]A[</small>]")}`;
+}
     
     updateTime();
     setInterval(updateTime, 1000);
@@ -24,7 +33,8 @@ function updateTime() {
     let cityInterval;
 
     function updateCity(event) {
-        
+        document.body.style.backgroundImage = `none`;
+        document.body.style.backgroundColor = "#252525";
         clearInterval(cityInterval);
         let cityTimeZone = event.target.value;
         if (cityTimeZone === "current") {
